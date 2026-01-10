@@ -1,0 +1,10 @@
+export default function Home() {
+  return (
+    <div className="container">
+      <section className="hero">
+        <h1>Welcome</h1>
+        <p>This is the home page.</p>
+      </section>
+    </div>
+  );
+}
