@@ -1,0 +1,242 @@
+{
+  "project": "Portfolio CLI Terminal",
+  "branchName": "ralph/cli-terminal-hero",
+  "description": "Interactive CLI terminal-style hero section with typing animation and command-based navigation",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Create CLIHero component structure",
+      "description": "As a developer, I need a client component with basic structure for the CLI terminal interface.",
+      "acceptanceCriteria": [
+        "Create /Users/tomasrojder/repo/tomasrojderdotcom/app/components/CLIHero.tsx",
+        "Add 'use client' directive at top of file",
+        "Import useState, useEffect, useRef from React",
+        "Import useRouter from next/navigation",
+        "Define component skeleton with min-h-screen section",
+        "Export default function CLIHero",
+        "Typecheck passes"
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "Add state management and constants",
+      "description": "As a developer, I need to set up all state variables and constants for the CLI component.",
+      "acceptanceCriteria": [
+        "Add state: typingComplete, displayedText, currentInput, commandHistory, showCursor, error",
+        "Add refs: inputRef for input element",
+        "Define welcomeMessage constant with specified text",
+        "Define tractorArt ASCII art constant",
+        "Define commands object mapping commands to routes (blog, projects, about, resume, help, clear)",
+        "Typecheck passes"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Implement typing animation logic",
+      "description": "As a user, I want to see a typing animation on first visit that displays the welcome message character by character.",
+      "acceptanceCriteria": [
+        "Add useEffect that checks localStorage for 'cli-intro-seen' key",
+        "If key exists: set displayedText to full welcomeMessage immediately",
+        "If key doesn't exist: start interval that adds one character every 20ms",
+        "When typing complete: set localStorage key and setTypingComplete(true)",
+        "Add cleanup function to clear interval on unmount",
+        "Typecheck passes"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "Add cursor blink effect",
+      "description": "As a user, I want to see a blinking cursor effect for authentic terminal feel.",
+      "acceptanceCriteria": [
+        "Add useEffect with 530ms interval",
+        "Toggle showCursor state on each interval",
+        "Add cleanup function to clear interval",
+        "Typecheck passes"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "Implement command handler and navigation",
+      "description": "As a user, I want to type commands that navigate to different pages.",
+      "acceptanceCriteria": [
+        "Create handleCommand function that prevents default form submission",
+        "Trim and lowercase input before processing",
+        "Add command to history array",
+        "Clear error state on valid command",
+        "Handle 'help': show available commands message",
+        "Handle 'clear': clear commandHistory array",
+        "Handle valid routes (blog, projects, about, resume): call router.push()",
+        "Handle invalid: show 'Command not found' error",
+        "Create handleInputChange function to update currentInput",
+        "Typecheck passes"
+      ],
+      "priority": 5,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-006",
+      "title": "Build terminal window UI structure",
+      "description": "As a user, I want to see a styled terminal window with header and body.",
+      "acceptanceCriteria": [
+        "Create terminal container with rounded corners and border using var(--border-color)",
+        "Add terminal header with macOS traffic lights (red, yellow, green dots)",
+        "Add username display 'tomas@portfolio:~' in header",
+        "Style header with var(--bg-surface-light) background",
+        "Create terminal body with padding (p-4 md:p-6)",
+        "Use font-mono for all terminal text",
+        "Use CSS variables for all colors (--primary, --text-primary, --bg-surface, etc.)",
+        "Typecheck passes"
+      ],
+      "priority": 6,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-007",
+      "title": "Add ASCII art and welcome message display",
+      "description": "As a user, I want to see ASCII art tractor and the typed welcome message.",
+      "acceptanceCriteria": [
+        "Add <pre> element with tractorArt, colored with var(--primary)",
+        "Hide ASCII art on mobile with 'hidden sm:block' classes",
+        "Add aria-label='ASCII art of a tractor' for accessibility",
+        "Display displayedText with whitespace-pre-wrap",
+        "Show blinking cursor after text while typing (inline-block with var(--primary) bg)",
+        "Cursor opacity toggles based on showCursor state",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 7,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-008",
+      "title": "Add command history and error display",
+      "description": "As a user, I want to see my previous commands and any error messages.",
+      "acceptanceCriteria": [
+        "Map commandHistory array to show each command with '$ ' prefix",
+        "Style command history with var(--text-secondary)",
+        "Show error message in red box if error state exists",
+        "Error box has rgba(239, 68, 68, 0.1) background with red left border",
+        "Error message clears when user types new input",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 8,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-009",
+      "title": "Create command input interface",
+      "description": "As a user, I want to type commands in a terminal-style input field.",
+      "acceptanceCriteria": [
+        "Create form with onSubmit={handleCommand}",
+        "Show input only when typingComplete is true",
+        "Add '$ ' prompt before input styled with var(--primary)",
+        "Create input with ref={inputRef}, transparent background",
+        "Input has no outline, uses var(--text-primary) color",
+        "Add placeholder 'type a command...'",
+        "Input has autoFocus, autoComplete='off', spellCheck='false'",
+        "Show blinking cursor after input",
+        "Add aria-label='Terminal command input'",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 9,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-010",
+      "title": "Add scroll indicator and responsive styling",
+      "description": "As a user, I want a scroll indicator and responsive layout that works on all devices.",
+      "acceptanceCriteria": [
+        "Add scroll indicator with bouncing down arrow below terminal",
+        "Arrow uses var(--text-secondary) color with animate-bounce",
+        "Terminal has max-w-3xl container",
+        "Responsive text: text-xs sm:text-sm md:text-base",
+        "Responsive padding: p-4 md:p-6",
+        "ASCII art hidden on screens <640px",
+        "All layout tested on mobile, tablet, desktop breakpoints",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 10,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-011",
+      "title": "Add accessibility features",
+      "description": "As a user with accessibility needs, I want proper ARIA labels and keyboard support.",
+      "acceptanceCriteria": [
+        "Add click handler to terminal body that focuses input (handleTerminalClick)",
+        "Terminal body has role='button' and tabIndex={0}",
+        "Add hidden help text with id='command-help'",
+        "Input has aria-describedby='command-help'",
+        "Add sr-only live region for announcements",
+        "Announce 'Welcome message complete. Command input is ready.' when typing finishes",
+        "Typecheck passes"
+      ],
+      "priority": 11,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-012",
+      "title": "Integrate CLIHero into home page",
+      "description": "As a developer, I need to replace the hero section with the CLIHero component.",
+      "acceptanceCriteria": [
+        "Add import: import CLIHero from './components/CLIHero' to /Users/tomasrojder/repo/tomasrojderdotcom/app/page.tsx",
+        "Remove lines 77-149 (current hero section with 'Full-Stack Engineer' title)",
+        "Replace removed section with <CLIHero /> component",
+        "Keep Featured Projects section below CLI",
+        "Keep Blog section below CLI",
+        "Keep About section below CLI",
+        "Do NOT add 'use client' to page.tsx (must stay server component)",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 12,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-013",
+      "title": "End-to-end testing and verification",
+      "description": "As a QA tester, I need to verify all functionality works correctly in the browser.",
+      "acceptanceCriteria": [
+        "Clear localStorage and verify typing animation plays on first visit",
+        "Refresh page and verify no animation on return visit",
+        "Test all commands: 'blog', 'projects', 'about', 'resume' navigate correctly",
+        "Test 'help' command shows available commands",
+        "Test 'clear' command clears history",
+        "Test invalid command shows error",
+        "Toggle light/dark theme and verify all colors update",
+        "Test on mobile: ASCII art hidden, input works with touch keyboard",
+        "Test on desktop: full experience visible",
+        "Tab to input and verify keyboard-only navigation works",
+        "Verify no console errors",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 13,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}

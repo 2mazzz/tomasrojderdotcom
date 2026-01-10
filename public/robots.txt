@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tomasrojder.com/sitemap.xml
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

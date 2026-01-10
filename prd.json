@@ -1,0 +1,267 @@
+{
+  "project": "Tomas Rojder Personal Website",
+  "branchName": "ralph/personal-website",
+  "description": "Build a professional personal website with portfolio, blog, and resume showcase using Next.js, React, and Tailwind CSS",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Install and configure Tailwind CSS",
+      "description": "As a developer, I need Tailwind CSS configured so I can use utility classes for styling.",
+      "acceptanceCriteria": [
+        "Install tailwindcss, postcss, and autoprefixer dependencies",
+        "Create tailwind.config.js and postcss.config.js files",
+        "Update globals.css with Tailwind directives (@tailwind, @layer, @apply)",
+        "App builds without errors",
+        "Typecheck passes"
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "Create design system with colors and typography",
+      "description": "As a developer, I need a cohesive design system so all pages maintain consistent styling.",
+      "acceptanceCriteria": [
+        "Define color palette in tailwind.config.js (primary, secondary, accent, neutral colors)",
+        "Define typography scale (font families, sizes, weights)",
+        "Define spacing scale as Tailwind theme extends",
+        "Create CSS variables for custom colors that Tailwind doesn't cover",
+        "Document color usage in globals.css comments",
+        "Typecheck passes"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Build responsive Header component with navigation",
+      "description": "As a visitor, I want a clear navigation header so I can move between pages easily on any device.",
+      "acceptanceCriteria": [
+        "Update Header component to display site name/logo",
+        "Add navigation links: Home, Blog, About, Resume, Projects",
+        "Implement mobile hamburger menu for screens under 768px",
+        "Header stays sticky/fixed at top while scrolling",
+        "Show active link indicator for current page",
+        "Use Tailwind classes and design system colors",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "Build responsive Footer component with social links",
+      "description": "As a visitor, I want footer information so I can find contact details and social links.",
+      "acceptanceCriteria": [
+        "Update Footer component to display copyright and current year",
+        "Add GitHub link: https://github.com/2mazzz",
+        "Add LinkedIn link: https://www.linkedin.com/in/tomasröjder",
+        "Add email link: mailto:tomas.rojder@gmail.com",
+        "Footer displays social icons/links clearly",
+        "Use Tailwind classes and design system colors",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "Create BlogCard component with design system styling",
+      "description": "As a developer, I need a reusable BlogCard component for displaying blog posts.",
+      "acceptanceCriteria": [
+        "Update BlogCard component to accept: title, date, description, slug",
+        "Display card with title, formatted date, and description",
+        "Card is clickable and links to blog post detail page",
+        "Use Tailwind classes for layout and design system colors",
+        "Make card responsive (full width on mobile, grid on desktop)",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 5,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-006",
+      "title": "Set up blog post parsing with gray-matter",
+      "description": "As a writer, I need a way to manage blog posts so I can publish content easily.",
+      "acceptanceCriteria": [
+        "Install gray-matter and markdown parsing library (marked or remark)",
+        "Update lib/posts.ts to export getPosts() function that reads /posts directory",
+        "Parse markdown frontmatter: title, date, description",
+        "Generate slug from filename (YYYY-MM-DD-slug.md format)",
+        "getPosts() returns array of posts sorted by date (newest first)",
+        "Create example blog post in /posts directory",
+        "Typecheck passes"
+      ],
+      "priority": 6,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-007",
+      "title": "Build Blog Listing page",
+      "description": "As a reader, I want to see all blog posts so I can browse and find articles of interest.",
+      "acceptanceCriteria": [
+        "Update app/blog/page.tsx to fetch and display all blog posts",
+        "Display posts in reverse chronological order (newest first)",
+        "Each post shown as BlogCard with title, date, description",
+        "Cards link to blog post detail page with correct slug",
+        "Page has heading and responsive grid layout",
+        "Use Tailwind and design system styling",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 7,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-008",
+      "title": "Build Blog Post Detail page with markdown rendering",
+      "description": "As a reader, I want to read full blog posts so I can consume the complete content.",
+      "acceptanceCriteria": [
+        "Update app/blog/[slug]/page.tsx to fetch post by slug",
+        "Display post title, date, and formatted content",
+        "Render markdown content as HTML using marked or remark",
+        "Add syntax highlighting to code blocks using highlight.js or prism",
+        "Handle 404 for non-existent posts gracefully",
+        "Use Tailwind and design system styling for typography",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill with sample post"
+      ],
+      "priority": 8,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-009",
+      "title": "Create Projects data structure and utilities",
+      "description": "As a developer, I need a way to manage project data so I can display projects on the website.",
+      "acceptanceCriteria": [
+        "Create lib/projects.ts with getProjects() function",
+        "Define Project interface: id, title, description, techStack (array), githubUrl, liveUrl",
+        "Add placeholder project data (4 projects as defined in PRD)",
+        "Export getProjects() function",
+        "Typecheck passes"
+      ],
+      "priority": 9,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-010",
+      "title": "Build Projects page with project cards",
+      "description": "As a visitor, I want to see your projects so I understand the quality and scope of your work.",
+      "acceptanceCriteria": [
+        "Create app/projects/page.tsx",
+        "Fetch all projects and display in responsive grid",
+        "Each project shows: title, description, tech stack badges, GitHub link, live demo link",
+        "Create ProjectCard component for consistent display",
+        "Use Tailwind and design system styling",
+        "Projects grid responsive (1 column mobile, 2-3 columns desktop)",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 10,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-011",
+      "title": "Build Home page with hero and featured sections",
+      "description": "As a visitor, I want to understand who you are immediately so I decide whether to explore further.",
+      "acceptanceCriteria": [
+        "Update app/page.tsx with hero section (headline, short bio, CTA buttons)",
+        "Add featured projects section (top 2-3 projects)",
+        "Add featured blog posts section (latest 2-3 posts)",
+        "Include links to View Portfolio, Read Blog, etc.",
+        "Use design system colors and Tailwind for layout",
+        "Responsive on mobile, tablet, desktop",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 11,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-012",
+      "title": "Build About page",
+      "description": "As a visitor, I want to learn more about your background so I understand your experience and interests.",
+      "acceptanceCriteria": [
+        "Create app/about/page.tsx",
+        "Add professional bio/introduction section",
+        "Add skills/expertise areas list with Tailwind badges",
+        "Add background/journey section with highlights",
+        "Add interests or hobbies section",
+        "Include link to resume page",
+        "Use design system colors and Tailwind styling",
+        "Responsive layout on all devices",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 12,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-013",
+      "title": "Build Resume page",
+      "description": "As a potential employer, I want to view your resume so I can assess your qualifications.",
+      "acceptanceCriteria": [
+        "Create app/resume/page.tsx",
+        "Display resume content in professional format (HTML/styled sections)",
+        "Include sections: Experience, Education, Skills, Certifications (as applicable)",
+        "Add download resume button (link to PDF if available, otherwise skip)",
+        "Use clean, print-friendly Tailwind styling",
+        "Responsive layout",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 13,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-014",
+      "title": "Add SEO metadata to all pages",
+      "description": "As a site owner, I need proper SEO so the site ranks well in search results.",
+      "acceptanceCriteria": [
+        "Add meta title and description to each page using Next.js Metadata API",
+        "Add Open Graph tags (og:title, og:description, og:image) to layout",
+        "Add Twitter Card tags to layout",
+        "Add canonical URLs to prevent duplicate content",
+        "Create public/robots.txt file",
+        "Create public/sitemap.xml with all page routes",
+        "Typecheck passes"
+      ],
+      "priority": 14,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-015",
+      "title": "Optimize performance and accessibility",
+      "description": "As a visitor, I want fast page loads and accessibility so I can view the site smoothly on any device.",
+      "acceptanceCriteria": [
+        "Add ARIA labels to interactive elements (buttons, links, mobile menu)",
+        "Ensure keyboard navigation works throughout site (Tab, Enter, Escape)",
+        "Verify color contrast meets WCAG AA standards (use design system colors correctly)",
+        "Use Next.js Image component for images (lazy loading by default)",
+        "Test mobile viewport configuration",
+        "Run Lighthouse audit and verify 90+ scores on Performance, Accessibility, Best Practices",
+        "Typecheck passes"
+      ],
+      "priority": 15,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}
