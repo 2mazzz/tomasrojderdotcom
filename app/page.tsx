@@ -4,8 +4,8 @@ import { getFeaturedProjects } from '@/lib/projects';
 import BlogCard from '@/components/BlogCard';
 import CLIHeroWrapper from '@/app/components/CLIHeroWrapper';
 
-// Prerender at build time, revalidate every hour
-export const revalidate = 3600;
+// Dynamic rendering to ensure CLIHero client component works properly
+export const revalidate = 0;
 
 export const metadata = {
   title: 'Tomas Rojder | Full-Stack Developer & Software Engineer',

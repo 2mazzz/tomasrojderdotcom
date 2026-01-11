@@ -40,31 +40,22 @@ export default function CLIHero() {
 
   // Typing animation effect
   useEffect(() => {
-    const hasSeenIntro = localStorage.getItem('cli-intro-seen');
-
-    if (hasSeenIntro) {
-      // If user has seen intro before, show full message immediately
-      setDisplayedText(welcomeMessage);
-      setTypingComplete(true);
-    } else {
-      // Type out the message character by character
-      let charIndex = 0;
-      const typingInterval = setInterval(() => {
-        if (charIndex < welcomeMessage.length) {
-          setDisplayedText(welcomeMessage.slice(0, charIndex + 1));
-          charIndex++;
-        } else {
-          // Typing complete
-          clearInterval(typingInterval);
-          localStorage.setItem('cli-intro-seen', 'true');
-          setTypingComplete(true);
-        }
-      }, 20);
-
-      return () => {
+    let charIndex = 0;
+    const typingInterval = setInterval(() => {
+      if (charIndex < welcomeMessage.length) {
+        setDisplayedText(welcomeMessage.slice(0, charIndex + 1));
+        charIndex++;
+      } else {
+        // Typing complete
         clearInterval(typingInterval);
-      };
-    }
+        localStorage.setItem('cli-intro-seen', 'true');
+        setTypingComplete(true);
+      }
+    }, 20);
+
+    return () => {
+      clearInterval(typingInterval);
+    };
   }, []);
 
   // Cursor blink effect
