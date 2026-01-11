@@ -1,20 +1,20 @@
 {
-  "project": "Portfolio CLI Terminal",
-  "branchName": "ralph/cli-terminal-hero",
-  "description": "Interactive CLI terminal-style hero section with typing animation and command-based navigation",
+  "project": "Blog Site Redesign",
+  "branchName": "ralph/blog-redesign",
+  "description": "Redesign blog page with continuous scroll experience. Display blog posts in a list with titles and subtitles, allow expanding posts inline to show full content with metadata (header, subtitle, date, tags) on the left. Keep top navigation persistent.",
   "userStories": [
     {
       "id": "US-001",
-      "title": "Create CLIHero component structure",
-      "description": "As a developer, I need a client component with basic structure for the CLI terminal interface.",
+      "title": "Create blog list page with continuous scroll",
+      "description": "As a user, I want to see all blog posts on one scrollable page so I can browse through them without pagination.",
       "acceptanceCriteria": [
-        "Create /Users/tomasrojder/repo/tomasrojderdotcom/app/components/CLIHero.tsx",
-        "Add 'use client' directive at top of file",
-        "Import useState, useEffect, useRef from React",
-        "Import useRouter from next/navigation",
-        "Define component skeleton with min-h-screen section",
-        "Export default function CLIHero",
-        "Typecheck passes"
+        "Blog page renders all posts in a continuous scrollable list",
+        "Each post displays in collapsed state showing: title, subtitle",
+        "List loads all available posts (no pagination/load more)",
+        "Smooth scroll behavior implemented",
+        "Page structure: top nav (always visible) + blog post list area",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
       ],
       "priority": 1,
       "passes": false,
@@ -22,15 +22,15 @@
     },
     {
       "id": "US-002",
-      "title": "Add state management and constants",
-      "description": "As a developer, I need to set up all state variables and constants for the CLI component.",
+      "title": "Display blog post metadata on the left",
+      "description": "As a developer, I need to structure the expanded post layout with metadata on the left side.",
       "acceptanceCriteria": [
-        "Add state: typingComplete, displayedText, currentInput, commandHistory, showCursor, error",
-        "Add refs: inputRef for input element",
-        "Define welcomeMessage constant with specified text",
-        "Define tractorArt ASCII art constant",
-        "Define commands object mapping commands to routes (blog, projects, about, resume, help, clear)",
-        "Typecheck passes"
+        "When post is expanded, left column displays: header, subtitle, date, tags",
+        "Left column has fixed width appropriate for metadata",
+        "Right column displays full blog post content",
+        "Layout is responsive (metadata stacks on mobile, side-by-side on desktop)",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
       ],
       "priority": 2,
       "passes": false,
@@ -38,15 +38,17 @@
     },
     {
       "id": "US-003",
-      "title": "Implement typing animation logic",
-      "description": "As a user, I want to see a typing animation on first visit that displays the welcome message character by character.",
+      "title": "Implement post expand/collapse functionality",
+      "description": "As a user, I want to click a post to expand it and read the full content.",
       "acceptanceCriteria": [
-        "Add useEffect that checks localStorage for 'cli-intro-seen' key",
-        "If key exists: set displayedText to full welcomeMessage immediately",
-        "If key doesn't exist: start interval that adds one character every 20ms",
-        "When typing complete: set localStorage key and setTypingComplete(true)",
-        "Add cleanup function to clear interval on unmount",
-        "Typecheck passes"
+        "Clicking a collapsed post title/subtitle expands it smoothly",
+        "Clicking an expanded post collapses it back",
+        "Only one post expanded at a time (collapse others when opening a new one)",
+        "Expand/collapse uses smooth CSS animation",
+        "Expanded state shows full post content + metadata layout",
+        "Collapsed state shows only title and subtitle",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
       ],
       "priority": 3,
       "passes": false,
@@ -54,13 +56,15 @@
     },
     {
       "id": "US-004",
-      "title": "Add cursor blink effect",
-      "description": "As a user, I want to see a blinking cursor effect for authentic terminal feel.",
+      "title": "Display post metadata (date, tags)",
+      "description": "As a user, I want to see when a post was published and what topics it covers.",
       "acceptanceCriteria": [
-        "Add useEffect with 530ms interval",
-        "Toggle showCursor state on each interval",
-        "Add cleanup function to clear interval",
-        "Typecheck passes"
+        "Expanded post shows publication date in left metadata section",
+        "Post tags/categories displayed as badges in left section",
+        "Date formatted consistently (e.g., 'January 10, 2025')",
+        "Tags styled as small clickable badges (color: var(--primary))",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
       ],
       "priority": 4,
       "passes": false,
@@ -68,19 +72,16 @@
     },
     {
       "id": "US-005",
-      "title": "Implement command handler and navigation",
-      "description": "As a user, I want to type commands that navigate to different pages.",
+      "title": "Style expanded post content area",
+      "description": "As a user, I want the full post content to be readable and well-formatted.",
       "acceptanceCriteria": [
-        "Create handleCommand function that prevents default form submission",
-        "Trim and lowercase input before processing",
-        "Add command to history array",
-        "Clear error state on valid command",
-        "Handle 'help': show available commands message",
-        "Handle 'clear': clear commandHistory array",
-        "Handle valid routes (blog, projects, about, resume): call router.push()",
-        "Handle invalid: show 'Command not found' error",
-        "Create handleInputChange function to update currentInput",
-        "Typecheck passes"
+        "Full post markdown content renders properly in right column",
+        "Content uses appropriate font size and line height (readable)",
+        "Code blocks (if present in posts) are styled with syntax highlighting",
+        "Links in posts are styled with var(--primary) color",
+        "Proper padding/spacing around content",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
       ],
       "priority": 5,
       "passes": false,
@@ -88,17 +89,16 @@
     },
     {
       "id": "US-006",
-      "title": "Build terminal window UI structure",
-      "description": "As a user, I want to see a styled terminal window with header and body.",
+      "title": "Make layout responsive for mobile",
+      "description": "As a mobile user, I want the blog to work well on small screens.",
       "acceptanceCriteria": [
-        "Create terminal container with rounded corners and border using var(--border-color)",
-        "Add terminal header with macOS traffic lights (red, yellow, green dots)",
-        "Add username display 'tomas@portfolio:~' in header",
-        "Style header with var(--bg-surface-light) background",
-        "Create terminal body with padding (p-4 md:p-6)",
-        "Use font-mono for all terminal text",
-        "Use CSS variables for all colors (--primary, --text-primary, --bg-surface, etc.)",
-        "Typecheck passes"
+        "On mobile (<640px): metadata stacks above content (single column)",
+        "On desktop (>=640px): metadata on left, content on right (two column)",
+        "Top navigation remains visible and functional on all screen sizes",
+        "Touch-friendly tap targets for expand/collapse",
+        "Proper scrolling behavior on mobile devices",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
       ],
       "priority": 6,
       "passes": false,
@@ -106,15 +106,14 @@
     },
     {
       "id": "US-007",
-      "title": "Add ASCII art and welcome message display",
-      "description": "As a user, I want to see ASCII art tractor and the typed welcome message.",
+      "title": "Style collapsed post list",
+      "description": "As a user, I want the blog list to be visually clear and scannable.",
       "acceptanceCriteria": [
-        "Add <pre> element with tractorArt, colored with var(--primary)",
-        "Hide ASCII art on mobile with 'hidden sm:block' classes",
-        "Add aria-label='ASCII art of a tractor' for accessibility",
-        "Display displayedText with whitespace-pre-wrap",
-        "Show blinking cursor after text while typing (inline-block with var(--primary) bg)",
-        "Cursor opacity toggles based on showCursor state",
+        "Each collapsed post shows title (large, bold) and subtitle",
+        "Post items have hover effect (opacity or background change)",
+        "Clear visual distinction between collapsed and expanded states",
+        "Consistent spacing between post items",
+        "Uses CSS variables for colors (--text-primary, --border-color, etc.)",
         "Typecheck passes",
         "Verify in browser using dev-browser skill"
       ],
@@ -124,14 +123,13 @@
     },
     {
       "id": "US-008",
-      "title": "Add command history and error display",
-      "description": "As a user, I want to see my previous commands and any error messages.",
+      "title": "Ensure top navigation persistence",
+      "description": "As a user, I want the top menu to always be accessible as I scroll through posts.",
       "acceptanceCriteria": [
-        "Map commandHistory array to show each command with '$ ' prefix",
-        "Style command history with var(--text-secondary)",
-        "Show error message in red box if error state exists",
-        "Error box has rgba(239, 68, 68, 0.1) background with red left border",
-        "Error message clears when user types new input",
+        "Top navigation menu stays visible when scrolling down",
+        "Top navigation does not overlap with blog content",
+        "Navigation links remain clickable while scrolling",
+        "Navigation styling matches existing site design",
         "Typecheck passes",
         "Verify in browser using dev-browser skill"
       ],
@@ -141,100 +139,16 @@
     },
     {
       "id": "US-009",
-      "title": "Create command input interface",
-      "description": "As a user, I want to type commands in a terminal-style input field.",
+      "title": "Remove old blog page layout",
+      "description": "As a developer, I need to remove the previous paginated/gridded blog layout.",
       "acceptanceCriteria": [
-        "Create form with onSubmit={handleCommand}",
-        "Show input only when typingComplete is true",
-        "Add '$ ' prompt before input styled with var(--primary)",
-        "Create input with ref={inputRef}, transparent background",
-        "Input has no outline, uses var(--text-primary) color",
-        "Add placeholder 'type a command...'",
-        "Input has autoFocus, autoComplete='off', spellCheck='false'",
-        "Show blinking cursor after input",
-        "Add aria-label='Terminal command input'",
-        "Typecheck passes",
-        "Verify in browser using dev-browser skill"
-      ],
-      "priority": 9,
-      "passes": false,
-      "notes": ""
-    },
-    {
-      "id": "US-010",
-      "title": "Add scroll indicator and responsive styling",
-      "description": "As a user, I want a scroll indicator and responsive layout that works on all devices.",
-      "acceptanceCriteria": [
-        "Add scroll indicator with bouncing down arrow below terminal",
-        "Arrow uses var(--text-secondary) color with animate-bounce",
-        "Terminal has max-w-3xl container",
-        "Responsive text: text-xs sm:text-sm md:text-base",
-        "Responsive padding: p-4 md:p-6",
-        "ASCII art hidden on screens <640px",
-        "All layout tested on mobile, tablet, desktop breakpoints",
-        "Typecheck passes",
-        "Verify in browser using dev-browser skill"
-      ],
-      "priority": 10,
-      "passes": false,
-      "notes": ""
-    },
-    {
-      "id": "US-011",
-      "title": "Add accessibility features",
-      "description": "As a user with accessibility needs, I want proper ARIA labels and keyboard support.",
-      "acceptanceCriteria": [
-        "Add click handler to terminal body that focuses input (handleTerminalClick)",
-        "Terminal body has role='button' and tabIndex={0}",
-        "Add hidden help text with id='command-help'",
-        "Input has aria-describedby='command-help'",
-        "Add sr-only live region for announcements",
-        "Announce 'Welcome message complete. Command input is ready.' when typing finishes",
+        "Remove old blog grid/card layout components",
+        "Remove pagination logic from blog page",
+        "Remove old blog page styling that conflicts with new design",
+        "Verify existing blog links still work (redirect if necessary)",
         "Typecheck passes"
       ],
-      "priority": 11,
-      "passes": false,
-      "notes": ""
-    },
-    {
-      "id": "US-012",
-      "title": "Integrate CLIHero into home page",
-      "description": "As a developer, I need to replace the hero section with the CLIHero component.",
-      "acceptanceCriteria": [
-        "Add import: import CLIHero from './components/CLIHero' to /Users/tomasrojder/repo/tomasrojderdotcom/app/page.tsx",
-        "Remove lines 77-149 (current hero section with 'Full-Stack Engineer' title)",
-        "Replace removed section with <CLIHero /> component",
-        "Keep Featured Projects section below CLI",
-        "Keep Blog section below CLI",
-        "Keep About section below CLI",
-        "Do NOT add 'use client' to page.tsx (must stay server component)",
-        "Typecheck passes",
-        "Verify in browser using dev-browser skill"
-      ],
-      "priority": 12,
-      "passes": false,
-      "notes": ""
-    },
-    {
-      "id": "US-013",
-      "title": "End-to-end testing and verification",
-      "description": "As a QA tester, I need to verify all functionality works correctly in the browser.",
-      "acceptanceCriteria": [
-        "Clear localStorage and verify typing animation plays on first visit",
-        "Refresh page and verify no animation on return visit",
-        "Test all commands: 'blog', 'projects', 'about', 'resume' navigate correctly",
-        "Test 'help' command shows available commands",
-        "Test 'clear' command clears history",
-        "Test invalid command shows error",
-        "Toggle light/dark theme and verify all colors update",
-        "Test on mobile: ASCII art hidden, input works with touch keyboard",
-        "Test on desktop: full experience visible",
-        "Tab to input and verify keyboard-only navigation works",
-        "Verify no console errors",
-        "Typecheck passes",
-        "Verify in browser using dev-browser skill"
-      ],
-      "priority": 13,
+      "priority": 9,
       "passes": false,
       "notes": ""
     }

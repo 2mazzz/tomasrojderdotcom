@@ -25,7 +25,7 @@ export async function getPosts(): Promise<Post[]> {
       mdFiles.map(async (file) => {
         const slug = file.replace(/\.md$/, '');
         const content = await fs.readFile(path.join(POSTS_DIR, file), 'utf-8');
-        const { data } = matter(content);
+        const { data, content: body } = matter(content);
 
         return {
           slug,
@@ -34,6 +34,7 @@ export async function getPosts(): Promise<Post[]> {
             date: data.date || '',
             description: data.description,
           } as PostMetadata,
+          content: body,
         };
       })
     );

@@ -1,16 +1,41 @@
-import { getPosts } from '@/lib/posts';
-import BlogCard from '@/components/BlogCard';
+'use client';
 
-// Prerender at build time, revalidate every hour
-export const revalidate = 3600;
+import { useState, useEffect } from 'react';
+import CollapsibleBlogPost from '@/components/CollapsibleBlogPost';
+import type { Post } from '@/lib/posts';
 
-export const metadata = {
-  title: 'Blog | Tomas Rojder',
-  description: 'Read my latest articles about web development, software engineering, and technology.',
-};
+// Note: This page is now a client component to manage expand/collapse state
+// We'll need to fetch posts on the client side
 
-export default async function Blog() {
-  const posts = await getPosts();
+export default function Blog() {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [expandedPostSlug, setExpandedPostSlug] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch('/api/posts');
+        if (!response.ok) throw new Error('Failed to fetch posts');
+        const data = await response.json();
+        setPosts(data);
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+  const handleExpand = (slug: string) => {
+    setExpandedPostSlug(slug);
+  };
+
+  const handleCollapse = () => {
+    setExpandedPostSlug(null);
+  };
 
   return (
     <div className="container py-2xl md:py-3xl">
@@ -28,11 +53,23 @@ export default async function Blog() {
           </p>
         </div>
 
-        {/* Posts Grid */}
-        {posts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-lg">
+        {/* Posts List */}
+        {isLoading ? (
+          <div className="text-center py-3xl">
+            <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
+              Loading posts...
+            </p>
+          </div>
+        ) : posts.length > 0 ? (
+          <div className="space-y-md">
             {posts.map((post) => (
-              <BlogCard key={post.slug} post={post} />
+              <CollapsibleBlogPost
+                key={post.slug}
+                post={post}
+                isExpanded={expandedPostSlug === post.slug}
+                onExpand={() => handleExpand(post.slug)}
+                onCollapse={() => handleCollapse()}
+              />
             ))}
           </div>
         ) : (

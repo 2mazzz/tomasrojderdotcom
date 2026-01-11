@@ -1,6 +1,6 @@
-# CLI Terminal Hero Section - Implementation Progress
+# Blog Site Redesign - Implementation Progress
 
 ## Overview
-Interactive CLI terminal-style hero section with typing animation and command-based navigation
+Redesign blog page with continuous scroll experience. Display blog posts in a list with titles and subtitles, allow expanding posts inline to show full content with metadata (header, subtitle, date, tags) on the left. Keep top navigation persistent.
 
 ---
