@@ -1,15 +1,20 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import CollapsibleBlogPost from '@/components/CollapsibleBlogPost';
+import Link from 'next/link';
 import type { Post } from '@/lib/posts';
 
-// Note: This page is now a client component to manage expand/collapse state
-// We'll need to fetch posts on the client side
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
 
 export default function Blog() {
   const [posts, setPosts] = useState<Post[]>([]);
-  const [expandedPostSlug, setExpandedPostSlug] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -29,30 +34,9 @@ export default function Blog() {
     fetchPosts();
   }, []);
 
-  const handleExpand = (slug: string) => {
-    setExpandedPostSlug(slug);
-  };
-
-  const handleCollapse = () => {
-    setExpandedPostSlug(null);
-  };
-
   return (
     <div className="container py-2xl md:py-3xl">
       <section className="space-y-2xl">
-        {/* Header */}
-        <div className="space-y-sm">
-          <h1
-            className="text-4xl md:text-5xl font-bold"
-            style={{ color: 'var(--text-primary)' }}
-          >
-            Blog
-          </h1>
-          <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
-            Thoughts on web development, software engineering, and technology
-          </p>
-        </div>
-
         {/* Posts List */}
         {isLoading ? (
           <div className="text-center py-3xl">
@@ -61,15 +45,46 @@ export default function Blog() {
             </p>
           </div>
         ) : posts.length > 0 ? (
-          <div className="border border-b-0" style={{ borderColor: 'var(--border-color)', borderRadius: '6px', overflow: 'hidden' }}>
+          <div className="space-y-lg">
             {posts.map((post) => (
-              <CollapsibleBlogPost
-                key={post.slug}
-                post={post}
-                isExpanded={expandedPostSlug === post.slug}
-                onExpand={() => handleExpand(post.slug)}
-                onCollapse={() => handleCollapse()}
-              />
+              <Link key={post.slug} href={`/blog/${post.slug}`}>
+                <div
+                  className="group p-lg rounded-lg transition-all duration-200 hover:translate-y-[-2px] cursor-pointer"
+                  style={{
+                    backgroundColor: 'var(--bg-surface)',
+                    borderLeft: '4px solid var(--primary)',
+                  }}
+                >
+                  <h2
+                    className="text-xl md:text-2xl font-bold mb-sm group-hover:opacity-80 transition-opacity"
+                    style={{ color: 'var(--text-primary)' }}
+                  >
+                    {post.metadata.title}
+                  </h2>
+                  <p
+                    className="text-sm mb-md"
+                    style={{ color: 'var(--text-secondary)' }}
+                  >
+                    {formatDate(post.metadata.date)}
+                  </p>
+                  {post.metadata.tags && post.metadata.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {post.metadata.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs font-medium px-3 py-1.5 rounded-full"
+                          style={{
+                            backgroundColor: 'var(--primary)',
+                            color: 'white',
+                          }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </Link>
             ))}
           </div>
         ) : (
