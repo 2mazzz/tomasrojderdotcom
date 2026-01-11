@@ -51,11 +51,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://tomasrojder.com" />
+        {/* Theme detection script - runs before hydration to prevent flash */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const stored = localStorage.getItem('theme');
+                const theme = stored || (
+                  window.matchMedia('(prefers-color-scheme: dark)').matches
+                    ? 'dark'
+                    : 'dark'
+                );
+                document.documentElement.setAttribute('data-theme', theme);
+              })();
+            `,
+          }}
+        />
       </head>
       <body>
         <Header />

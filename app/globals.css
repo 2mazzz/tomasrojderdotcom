@@ -6,37 +6,11 @@
 
 /* Dual Theme Design System - Light & Dark */
 :root {
-  color-scheme: light dark;
+  color-scheme: dark light;
 }
 
-/* Light Mode (Default) */
+/* Dark Mode (Default) */
 :root,
-[data-theme="light"] {
-  /* Core Colors - Light Mode */
-  --primary: #E35336;           /* Terracotta */
-  --primary-hover: #C7442B;     /* Terracotta hover */
-  --secondary: #3A7D44;         /* Green */
-  --secondary-dark: #1F4D36;    /* Dark Green */
-
-  /* Background & Surfaces */
-  --bg-dark: #FAF7F4;           /* Warm off-white */
-  --bg-darker: #F1ECE6;         /* Soft warm neutral */
-  --bg-surface: #FFFFFF;        /* Card/Surface */
-  --bg-surface-light: #FAF7F4;  /* Elevated surface */
-
-  /* Text */
-  --text-primary: #1F2933;      /* Near-black */
-  --text-secondary: #5B6B73;    /* Secondary text */
-  --text-muted: #8A9A9A;        /* Muted/disabled */
-
-  /* UI Accents */
-  --border-color: #E3DDD7;      /* Border/divider */
-  --border-color-light: #F1ECE6;/* Light border */
-  --success: #3A7D44;
-  --warning: #E9A23B;
-}
-
-/* Dark Mode */
 [data-theme="dark"] {
   /* Core Colors - Dark Mode */
   --primary: #E35336;           /* Terracotta (vibrant) */
@@ -60,6 +34,32 @@
   --border-color-light: #3A4A44;/* Light border */
   --success: #4FAF7A;
   --warning: #F0B45C;
+}
+
+/* Light Mode */
+[data-theme="light"] {
+  /* Core Colors - Light Mode */
+  --primary: #E35336;           /* Terracotta */
+  --primary-hover: #C7442B;     /* Terracotta hover */
+  --secondary: #3A7D44;         /* Green */
+  --secondary-dark: #1F4D36;    /* Dark Green */
+
+  /* Background & Surfaces */
+  --bg-dark: #FAF7F4;           /* Warm off-white */
+  --bg-darker: #F1ECE6;         /* Soft warm neutral */
+  --bg-surface: #FFFFFF;        /* Card/Surface */
+  --bg-surface-light: #FAF7F4;  /* Elevated surface */
+
+  /* Text */
+  --text-primary: #1F2933;      /* Near-black */
+  --text-secondary: #5B6B73;    /* Secondary text */
+  --text-muted: #8A9A9A;        /* Muted/disabled */
+
+  /* UI Accents */
+  --border-color: #E3DDD7;      /* Border/divider */
+  --border-color-light: #F1ECE6;/* Light border */
+  --success: #3A7D44;
+  --warning: #E9A23B;
 }
 
 /* Spacing (applies to all themes) */

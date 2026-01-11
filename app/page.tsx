@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { getPosts } from '@/lib/posts';
 import { getFeaturedProjects } from '@/lib/projects';
 import BlogCard from '@/components/BlogCard';
-import CLIHero from '@/app/components/CLIHero';
+import CLIHeroWrapper from '@/app/components/CLIHeroWrapper';
 
 // Prerender at build time, revalidate every hour
 export const revalidate = 3600;
@@ -78,7 +78,7 @@ export default async function Home() {
       `}</style>
 
       {/* CLI Hero Section */}
-      <CLIHero />
+      <CLIHeroWrapper />
 
       {/* Featured Projects */}
       <section
