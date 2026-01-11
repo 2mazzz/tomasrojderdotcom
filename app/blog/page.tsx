@@ -61,7 +61,7 @@ export default function Blog() {
             </p>
           </div>
         ) : posts.length > 0 ? (
-          <div className="space-y-md">
+          <div className="border border-b-0" style={{ borderColor: 'var(--border-color)', borderRadius: '6px', overflow: 'hidden' }}>
             {posts.map((post) => (
               <CollapsibleBlogPost
                 key={post.slug}

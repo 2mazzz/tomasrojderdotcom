@@ -47,35 +47,35 @@ export default function CollapsibleBlogPost({
 
   return (
     <div
-      className={`transition-all duration-300 ease-in-out overflow-hidden ${
+      className={`transition-all duration-300 ease-in-out overflow-hidden last:border-b-0 ${
         isExpanded ? 'ring-1 ring-primary' : ''
       }`}
-      style={{
-        borderColor: 'var(--border-color)',
-        borderWidth: '1px',
-        borderRadius: '6px',
-      }}
+      style={{}}
     >
       {/* Collapsed State */}
       <button
         onClick={handleExpandClick}
-        className={`w-full text-left transition-all duration-300 ease-in-out min-h-[44px] sm:min-h-auto py-lg px-md sm:px-lg`}
+        className={`w-full text-left transition-all duration-200 ease-in-out min-h-[44px] sm:min-h-auto py-lg px-md sm:px-lg
+          ${!isExpanded ? 'hover:opacity-90' : ''}
+          border-b`}
         style={{
-          backgroundColor: isExpanded ? 'var(--bg-surface-light)' : 'var(--bg-surface)',
-          borderBottom: isExpanded ? '1px solid var(--border-color)' : 'none',
+          backgroundColor: isExpanded ? 'var(--bg-surface-light)' : 'transparent',
+          borderBottom: '1px solid var(--border-color)',
+          color: 'var(--text-primary)',
+          cursor: 'pointer',
         }}
       >
         <div className="flex items-start justify-between gap-md">
-          <div className="flex-1 min-w-0">
+          <div className="flex-1 min-w-0 space-y-xs">
             <h3
-              className="text-lg font-semibold transition-colors duration-200 truncate hover:text-primary"
+              className="text-lg md:text-xl font-bold transition-all duration-200 truncate hover:text-primary"
               style={{ color: 'var(--text-primary)' }}
             >
               {post.metadata.title}
             </h3>
             {post.metadata.description && (
               <p
-                className="text-sm transition-colors duration-200 line-clamp-2 mt-xs"
+                className="text-sm md:text-base transition-colors duration-200 line-clamp-2"
                 style={{ color: 'var(--text-secondary)' }}
               >
                 {post.metadata.description}
