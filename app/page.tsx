@@ -4,6 +4,9 @@ import { getFeaturedProjects } from '@/lib/projects';
 import BlogCard from '@/components/BlogCard';
 import CLIHero from '@/app/components/CLIHero';
 
+// Prerender at build time, revalidate every hour
+export const revalidate = 3600;
+
 export const metadata = {
   title: 'Tomas Rojder | Full-Stack Developer & Software Engineer',
   description: 'Industrial-grade portfolio of a full-stack developer specializing in web applications, React, Next.js, and modern web technologies.',

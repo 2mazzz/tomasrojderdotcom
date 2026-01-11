@@ -1,3 +1,6 @@
+// Prerender at build time (no dynamic data)
+export const revalidate = false;
+
 export const metadata = {
   title: 'Resume | Tomas Rojder',
   description: 'Resume and CV of Tomas Rojder, full-stack developer and software engineer.',

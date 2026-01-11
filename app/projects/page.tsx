@@ -1,6 +1,9 @@
 import { getProjects } from '@/lib/projects';
 import Link from 'next/link';
 
+// Prerender at build time
+export const revalidate = false;
+
 export const metadata = {
   title: 'Projects | Tomas Rojder',
   description: 'Explore my portfolio of web development projects, featuring full-stack applications, frontend applications, and open-source contributions.',

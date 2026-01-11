@@ -3,6 +3,9 @@ import { notFound } from 'next/navigation';
 import { marked } from 'marked';
 import Link from 'next/link';
 
+// Prerender at build time, revalidate every hour
+export const revalidate = 3600;
+
 export async function generateStaticParams() {
   const posts = await getPosts();
   return posts.map((post) => ({

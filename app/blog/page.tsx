@@ -1,6 +1,9 @@
 import { getPosts } from '@/lib/posts';
 import BlogCard from '@/components/BlogCard';
 
+// Prerender at build time, revalidate every hour
+export const revalidate = 3600;
+
 export const metadata = {
   title: 'Blog | Tomas Rojder',
   description: 'Read my latest articles about web development, software engineering, and technology.',

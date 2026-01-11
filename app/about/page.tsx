@@ -1,5 +1,8 @@
 import Link from 'next/link';
 
+// Prerender at build time (no dynamic data)
+export const revalidate = false;
+
 export const metadata = {
   title: 'About | Tomas Rojder',
   description: 'Learn more about Tomas Rojder, a full-stack developer, software engineer, and passionate learner.',
