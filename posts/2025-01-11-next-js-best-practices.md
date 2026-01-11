@@ -2,6 +2,11 @@
 title: Next.js Best Practices
 date: 2025-01-11
 description: Learn the best practices for building scalable and performant Next.js applications with modern patterns and optimization techniques.
+tags:
+  - next.js
+  - react
+  - performance
+  - best practices
 ---
 
 # Next.js Best Practices

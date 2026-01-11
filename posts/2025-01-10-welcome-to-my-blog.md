@@ -2,6 +2,10 @@
 title: Welcome to My Blog
 date: 2025-01-10
 description: This is the first post on my personal website. Here I'll share insights about web development, architecture, and software engineering best practices.
+tags:
+  - web development
+  - blogging
+  - welcome
 ---
 
 # Welcome to My Blog

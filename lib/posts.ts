@@ -6,6 +6,7 @@ export interface PostMetadata {
   title: string;
   date: string;
   description?: string;
+  tags?: string[];
 }
 
 export interface Post {
@@ -33,6 +34,7 @@ export async function getPosts(): Promise<Post[]> {
             title: data.title || 'Untitled',
             date: data.date || '',
             description: data.description,
+            tags: data.tags || [],
           } as PostMetadata,
           content: body,
         };
@@ -58,6 +60,7 @@ export async function getPost(slug: string): Promise<Post | null> {
         title: data.title || 'Untitled',
         date: data.date || '',
         description: data.description,
+        tags: data.tags || [],
       } as PostMetadata,
       content: body,
     };
