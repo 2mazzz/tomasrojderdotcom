@@ -72,8 +72,8 @@ export default function Resume() {
             github.com/2mazzz
           </a>
           <span>•</span>
-          <a href="https://www.linkedin.com/in/tomasrojder" className="transition-colors hover:opacity-80" style={{ color: 'var(--primary)' }}>
-            linkedin.com/in/tomasrojder
+          <a href="https://www.linkedin.com/in/tomasröjder" className="transition-colors hover:opacity-80" style={{ color: 'var(--primary)' }}>
+            linkedin.com/in/tomasröjder
           </a>
         </div>
       </div>

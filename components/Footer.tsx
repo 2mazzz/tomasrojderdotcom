@@ -49,7 +49,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://www.linkedin.com/in/tomasrojder"
+            href="https://www.linkedin.com/in/tomasröjder"
             target="_blank"
             rel="noopener noreferrer"
             className="transition-all duration-300 hover:drop-shadow-lg focus:outline-none rounded"
