@@ -11,40 +11,37 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: '1',
-    title: 'Project One',
+    title: 'Quadcopter SLAM Evaluation',
     description:
-      'Full-stack web application built with modern technologies. Features include real-time updates, user authentication, and responsive design.',
-    techStack: ['Next.js', 'React', 'Node.js', 'PostgreSQL', 'TypeScript'],
+      'Master thesis project evaluating different SLAM algorithms for autonomous quadcopter navigation. Implemented sensor fusion combining IMU, camera, and depth sensors for robust localization and mapping.',
+    techStack: ['C++', 'Python', 'ROS', 'OpenCV', 'Point Cloud Library'],
     featured: true,
-    githubUrl: 'https://github.com/2mazzz/project-one',
+    githubUrl: 'https://github.com/2mazzz/slam-quadcopter',
   },
   {
     id: '2',
-    title: 'Project Two',
+    title: 'Agricultural Machine Control System',
     description:
-      'Mobile-responsive frontend application with modern UI/UX design. Demonstrates advanced React patterns and state management.',
-    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Zustand'],
+      'Control algorithms for precision agriculture equipment at Väderstad. Big data processing and real-time control for optimizing planting depth, seed spacing, and soil interaction.',
+    techStack: ['C++', 'Python', 'Control Theory', 'Signal Processing'],
     featured: true,
-    liveUrl: 'https://project-two-demo.com',
-    githubUrl: 'https://github.com/2mazzz/project-two',
   },
   {
     id: '3',
-    title: 'Project Three',
+    title: 'Autonomous Navigation Research',
     description:
-      'RESTful API and backend service with robust error handling, authentication, and database optimization. Built for scalability.',
-    techStack: ['Node.js', 'Express', 'MongoDB', 'Docker'],
+      'Personal research project exploring modern approaches to autonomous navigation. Combining classical control methods with reinforcement learning for adaptive path planning in dynamic environments.',
+    techStack: ['Python', 'PyTorch', 'ROS', 'Gazebo Simulator'],
     featured: true,
-    githubUrl: 'https://github.com/2mazzz/project-three',
+    githubUrl: 'https://github.com/2mazzz/autonomous-nav',
   },
   {
     id: '4',
-    title: 'Project Four',
+    title: 'Sensor Fusion Framework',
     description:
-      'Open source contribution and utility library. Provides reusable components and utilities for common web development tasks.',
-    techStack: ['TypeScript', 'React', 'npm'],
-    liveUrl: 'https://npm.com/package/project-four',
-    githubUrl: 'https://github.com/2mazzz/project-four',
+      'Modular sensor fusion framework for combining multiple sensor modalities. Used for research in robust state estimation for mobile robots with applications in both ground and aerial vehicles.',
+    techStack: ['C++', 'ROS', 'Kalman Filtering', 'Particle Filters'],
+    githubUrl: 'https://github.com/2mazzz/sensor-fusion-framework',
   },
 ];
 

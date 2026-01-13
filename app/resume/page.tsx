@@ -3,7 +3,7 @@ export const revalidate = false;
 
 export const metadata = {
   title: 'Resume | Tomas Rojder',
-  description: 'Resume and CV of Tomas Rojder, full-stack developer and software engineer.',
+  description: 'Resume and CV of Tomas Rojder, algorithm developer, robotics engineer, and control systems specialist.',
 };
 
 function ResumeSection({
@@ -61,7 +61,7 @@ export default function Resume() {
           Tomas Rojder
         </h1>
         <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
-          Full-Stack Developer & Software Engineer
+          Algorithm Developer & Robotics Engineer
         </p>
         <div className="flex flex-wrap gap-md text-sm" style={{ color: 'var(--text-secondary)' }}>
           <a href="mailto:tomas.rojder@gmail.com" className="transition-colors hover:opacity-80" style={{ color: 'var(--primary)' }}>
@@ -81,7 +81,7 @@ export default function Resume() {
       {/* Professional Summary */}
       <ResumeSection title="Professional Summary">
         <p className="leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-          Full-stack developer with 3+ years of experience building modern web applications. Proficient in React, Next.js, TypeScript, Node.js, and database design. Strong problem-solving skills with a focus on clean, maintainable code and user-centered design. Proven track record of delivering high-quality products and collaborating with cross-functional teams.
+          Robotics and control systems engineer with expertise in autonomous systems, AI applications, and big data processing for advanced machinery. M.Sc. in Applied Physics and Electrical Engineering (Mechatronics and Control) from Linköping University. Proven track record developing control algorithms for agricultural automation, flight autonomy systems, and heat pump optimization. Strong foundation in C++, Python, MATLAB, and ROS with hands-on experience in SLAM, sensor fusion, and computer vision.
         </p>
       </ResumeSection>
 
@@ -89,22 +89,22 @@ export default function Resume() {
       <ResumeSection title="Professional Experience">
         <div className="space-y-2xl">
           <ResumeItem
-            title="Full-Stack Developer"
-            subtitle="Tech Company"
-            period="2023 - Present"
-            description="Building modern web applications using React and Next.js. Developing backend services with Node.js, Express, and PostgreSQL. Implementing responsive designs with Tailwind CSS. Collaborating with product and design teams to deliver user-centric solutions."
+            title="Algorithm Developer"
+            subtitle="Väderstad AB"
+            period="2025 - Present"
+            description="Developing control algorithms and big data solutions for advanced agricultural machines. Implementing real-time control systems in C++ and Python for optimizing machine performance, autonomous features, and precision agriculture applications. Working with large-scale sensor data processing and machine learning integration."
           />
           <ResumeItem
-            title="Frontend Developer"
-            subtitle="Startup"
-            period="2022 - 2023"
-            description="Developed responsive user interfaces with React and TypeScript. Implemented component libraries and design systems. Collaborated with designers and backend developers. Optimized performance and accessibility across web applications."
+            title="Systems Engineer"
+            subtitle="Saab AB"
+            period="2024 - 2025"
+            description="Contributed to flight autonomy capabilities for defense systems. Developed algorithms in C++, MATLAB, and Python for autonomous navigation, decision-making systems, and mission planning. Collaborated with cross-functional teams on safety-critical software for aerial vehicles."
           />
           <ResumeItem
-            title="Web Developer"
-            subtitle="Freelance"
-            period="2021 - 2022"
-            description="Built custom websites and web applications for various clients. Full-stack development from concept to deployment. Implemented SEO best practices. Maintained and improved existing applications."
+            title="Software Developer"
+            subtitle="Bosch Termoteknik AB"
+            period="2023 - 2024"
+            description="Developed control software for heat pump systems using Simulink, Python, and C++. Implemented optimization algorithms for energy efficiency, model-based control strategies, and system diagnostics. Conducted simulation and validation of control algorithms for thermal management systems."
           />
         </div>
       </ResumeSection>
@@ -113,22 +113,22 @@ export default function Resume() {
       <ResumeSection title="Technical Skills">
         <div className="space-y-sm" style={{ color: 'var(--text-secondary)' }}>
           <p>
-            <span className="font-semibold">Languages:</span> JavaScript, TypeScript, HTML, CSS
+            <span className="font-semibold">Programming Languages:</span> C++, Python, MATLAB, Simulink
           </p>
           <p>
-            <span className="font-semibold">Frontend:</span> React, Next.js, Tailwind CSS, CSS Modules, Responsive Design
+            <span className="font-semibold">Robotics & Autonomy:</span> ROS (Robot Operating System), SLAM, Sensor Fusion, Path Planning, Control Theory
           </p>
           <p>
-            <span className="font-semibold">Backend:</span> Node.js, Express, REST APIs, Authentication & Authorization
+            <span className="font-semibold">AI & Machine Learning:</span> PyTorch, TensorFlow, Reinforcement Learning, Computer Vision, OpenCV
           </p>
           <p>
-            <span className="font-semibold">Databases:</span> PostgreSQL, MongoDB, Data Modeling
+            <span className="font-semibold">Control Systems:</span> PID Control, State-Space Methods, Kalman Filtering, Model Predictive Control
           </p>
           <p>
-            <span className="font-semibold">Tools & Platforms:</span> Git, GitHub, Docker, Vercel, AWS, VS Code
+            <span className="font-semibold">Tools & Platforms:</span> Git, Docker, Linux, Gazebo Simulator, Point Cloud Library, CMake
           </p>
           <p>
-            <span className="font-semibold">Methodologies:</span> Agile, RESTful Design, Component-Based Architecture
+            <span className="font-semibold">Domains:</span> Autonomous Systems, Agricultural Automation, Flight Systems, Big Data Processing
           </p>
         </div>
       </ResumeSection>
@@ -136,25 +136,27 @@ export default function Resume() {
       {/* Education */}
       <ResumeSection title="Education">
         <ResumeItem
-          title="Bachelor of Science in Computer Science"
-          subtitle="University Name"
-          period="2020"
-          description="Focused on software engineering, algorithms, and data structures."
+          title="M.Sc. Applied Physics & Electrical Engineering"
+          subtitle="Linköping University, Sweden"
+          period="2019 - 2024"
+          description="Specialization in Mechatronics and Control Systems. Master thesis: 'Evaluation of SLAM Algorithms for Quadcopters' - investigating sensor fusion techniques combining IMU, camera, and depth sensors for autonomous navigation."
         />
       </ResumeSection>
 
-      {/* Certifications & Awards */}
-      <ResumeSection title="Certifications & Awards">
+      {/* Key Projects */}
+      <ResumeSection title="Key Projects">
         <div className="space-y-md">
           <ResumeItem
-            title="React Advanced Patterns Certification"
-            subtitle="Online Course"
-            period="2023"
+            title="Quadcopter SLAM Evaluation"
+            subtitle="Master Thesis Project"
+            period="2024"
+            description="Comprehensive evaluation of SLAM algorithms for autonomous quadcopter navigation. Implemented and compared multiple approaches for real-time localization and mapping using sensor fusion."
           />
           <ResumeItem
-            title="Full-Stack JavaScript Developer Certificate"
-            subtitle="Bootcamp"
-            period="2021"
+            title="Autonomous Navigation Research"
+            subtitle="Personal Project"
+            period="2025"
+            description="Research combining classical control methods with reinforcement learning for adaptive path planning in dynamic environments. Implemented in ROS with Gazebo simulation."
           />
         </div>
       </ResumeSection>

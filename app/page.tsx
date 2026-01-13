@@ -8,8 +8,8 @@ import CLIHeroWrapper from '@/app/components/CLIHeroWrapper';
 export const revalidate = 0;
 
 export const metadata = {
-  title: 'Tomas Rojder | Full-Stack Developer & Software Engineer',
-  description: 'Industrial-grade portfolio of a full-stack developer specializing in web applications, React, Next.js, and modern web technologies.',
+  title: 'Tomas Rojder | Algorithm Developer & Robotics Engineer',
+  description: 'Portfolio showcasing work in control algorithms, autonomous systems, and AI applications for agricultural and defense robotics.',
 };
 
 function ProjectCard({
@@ -158,7 +158,7 @@ export default async function Home() {
               color: 'var(--text-secondary)',
             }}
           >
-            Insights on full-stack development, system design, and engineering best practices
+            Insights on autonomous systems, robotics, AI exploration, and control theory
           </p>
         </div>
 
@@ -212,7 +212,7 @@ export default async function Home() {
             About
           </h2>
           <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Full-stack engineer with deep expertise in modern web technologies. Passionate about solving complex problems with clean, maintainable code. Specialized in building scalable systems, optimizing performance, and mentoring teams.
+            Robotics and control systems engineer specializing in autonomous systems and AI applications. From agricultural automation to flight systems, I develop algorithms that bring machines to life. Passionate about SLAM, sensor fusion, and pushing the boundaries of what autonomous systems can achieve.
           </p>
           <Link href="/about" className="btn-primary inline-block">
             Learn More About Me

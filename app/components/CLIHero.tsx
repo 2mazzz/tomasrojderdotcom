@@ -3,19 +3,19 @@
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
-const welcomeMessage = `Welcome to my corner of the web! I'm Tomas, a full-stack engineer who loves building things that matter.
+const welcomeMessage = `Welcome to my corner of the web! I'm Tomas, a robotics and control systems engineer with a passion for autonomous systems and AI.
 
-Here you'll find my thoughts on software development, projects I've worked on, and a bit about my journey. Whether you're looking for technical deep-dives or just exploring, I'm glad you're here.
+I work on control algorithms for agricultural machines and have experience in flight autonomy systems. This site showcases my projects in SLAM, sensor fusion, and AI exploration.
 
 Type a command to get started, or try 'help' to see what you can do.`;
 
-const tractorArt = `     ___
-    |   |___
-    |   |   |
-  __|___|___|__
- |  ___   ___  |
- |_|   |_|   |_|
-   (o)   (o)`;
+const tractorArt = `       _____________
+      /            /|
+     /____________/ |
+    | ___    ___ |  |
+    ||   |  |   || /
+    ||___|  |___||/
+     (==)    (==)`;
 
 const commands: Record<string, string | null> = {
   blog: '/blog',

@@ -4,9 +4,9 @@ import Footer from '@/components/Footer';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Tomas Rojder | Full-Stack Developer & Software Engineer',
-  description: 'Portfolio of Tomas Rojder, a full-stack developer specializing in web applications, React, Next.js, and modern web technologies.',
-  keywords: ['developer', 'software engineer', 'react', 'next.js', 'typescript', 'full-stack'],
+  title: 'Tomas Rojder | Algorithm Developer & Robotics Engineer',
+  description: 'Portfolio of Tomas Rojder, an algorithm developer specializing in control systems, autonomous machines, and AI applications in robotics.',
+  keywords: ['algorithm developer', 'robotics', 'control systems', 'autonomous systems', 'AI', 'C++', 'Python', 'ROS'],
   authors: [{ name: 'Tomas Rojder', url: 'https://tomasrojder.com' }],
   creator: 'Tomas Rojder',
   openGraph: {
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://tomasrojder.com',
     siteName: 'Tomas Rojder',
-    title: 'Tomas Rojder | Full-Stack Developer',
-    description: 'Portfolio of Tomas Rojder, a full-stack developer specializing in web applications.',
+    title: 'Tomas Rojder | Algorithm Developer & Robotics Engineer',
+    description: 'Portfolio of Tomas Rojder, an algorithm developer specializing in control systems, autonomous machines, and AI applications in robotics.',
     images: [
       {
         url: 'https://tomasrojder.com/og-image.jpg',
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tomas Rojder | Full-Stack Developer',
-    description: 'Portfolio and blog of Tomas Rojder, full-stack developer',
+    title: 'Tomas Rojder | Algorithm Developer & Robotics Engineer',
+    description: 'Portfolio and AI exploration of Tomas Rojder, robotics engineer and control systems specialist',
     images: ['https://tomasrojder.com/og-image.jpg'],
   },
   robots: {

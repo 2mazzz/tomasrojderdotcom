@@ -6,7 +6,7 @@ export const revalidate = false;
 
 export const metadata = {
   title: 'Projects | Tomas Rojder',
-  description: 'Explore my portfolio of web development projects, featuring full-stack applications, frontend applications, and open-source contributions.',
+  description: 'Explore my portfolio of robotics and AI projects, featuring SLAM algorithms, autonomous systems, and control theory implementations.',
 };
 
 function ProjectCard({
@@ -108,7 +108,7 @@ export default function Projects() {
             Projects
           </h1>
           <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
-            A selection of my work in web development, full-stack applications, and open source
+            A selection of my work in robotics, autonomous systems, SLAM, and AI experimentation
           </p>
         </div>
 

@@ -5,43 +5,43 @@ export const revalidate = false;
 
 export const metadata = {
   title: 'About | Tomas Rojder',
-  description: 'Learn more about Tomas Rojder, a full-stack developer, software engineer, and passionate learner.',
+  description: 'Learn more about Tomas Rojder, a robotics engineer, control systems specialist, and AI enthusiast working on autonomous systems.',
 };
 
 export default function About() {
   const skills = [
-    'JavaScript / TypeScript',
-    'React',
-    'Next.js',
-    'Node.js',
-    'Express',
-    'PostgreSQL',
-    'MongoDB',
-    'Tailwind CSS',
-    'Web APIs',
-    'REST APIs',
+    'C++',
+    'Python',
+    'MATLAB/Simulink',
+    'ROS (Robot Operating System)',
+    'Control Systems',
+    'SLAM Algorithms',
+    'Sensor Fusion',
+    'Computer Vision',
+    'AI/ML Frameworks',
     'Git',
     'Docker',
+    'Big Data Processing',
   ];
 
   const experience = [
     {
-      company: 'Tech Company',
-      role: 'Full-Stack Developer',
-      period: '2023 - Present',
-      description: 'Building modern web applications with React and Next.js. Working on backend services with Node.js and PostgreSQL.',
+      company: 'Väderstad AB',
+      role: 'Algorithm Developer',
+      period: '2025 - Present',
+      description: 'Developing control algorithms and big data solutions for advanced agricultural machines. Working with C++ and Python to optimize machine performance and implement autonomous features.',
     },
     {
-      company: 'Startup',
-      role: 'Frontend Developer',
-      period: '2022 - 2023',
-      description: 'Developed responsive user interfaces using React and Tailwind CSS. Collaborated with designers and product managers.',
+      company: 'Saab AB',
+      role: 'Systems Engineer',
+      period: '2024 - 2025',
+      description: 'Worked on flight autonomy capabilities for defense systems. Developed algorithms in C++, MATLAB, and Python for autonomous navigation and decision-making systems.',
     },
     {
-      company: 'Freelance',
-      role: 'Web Developer',
-      period: '2021 - 2022',
-      description: 'Built custom websites and web applications for various clients. Full-stack development from concept to deployment.',
+      company: 'Bosch Termoteknik AB',
+      role: 'Software Developer',
+      period: '2023 - 2024',
+      description: 'Developed control software for heat pump systems using Simulink, Python, and C++. Implemented optimization algorithms for energy efficiency and system performance.',
     },
   ];
 
@@ -61,10 +61,10 @@ export default function About() {
             Who I Am
           </h2>
           <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            I'm a full-stack developer and software engineer based in Europe, passionate about building fast, scalable, and beautiful web applications. With over 3 years of professional experience, I specialize in modern web technologies and love solving complex problems through clean, maintainable code.
+            I'm a robotics and control systems engineer based in Sweden, specializing in autonomous systems and AI applications. With a Master's degree in Applied Physics and Electrical Engineering from Linköping University (Mechatronics and Control focus), I work on cutting-edge problems in agricultural automation and defense systems.
           </p>
           <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            I'm a continuous learner who stays updated with the latest trends in web development. I enjoy collaborating with teams, mentoring junior developers, and contributing to open-source projects.
+            My work spans control algorithms, sensor fusion, SLAM, and AI integration for real-world robotic systems. I'm passionate about pushing the boundaries of what autonomous machines can achieve, from agricultural tractors to aerial vehicles. When I'm not optimizing control loops, I explore personal AI projects and contribute to the robotics community.
           </p>
         </div>
       </section>
@@ -127,10 +127,35 @@ export default function About() {
         </h2>
         <div className="space-y-md text-lg" style={{ color: 'var(--text-secondary)' }}>
           <p>
-            Beyond coding, I'm interested in system design, performance optimization, and best practices in software engineering. I enjoy reading technical articles and books about web architecture and scalability.
+            Beyond my day-to-day work, I'm deeply interested in the intersection of AI and robotics, autonomous navigation systems, and the theoretical foundations of control theory. I stay current with advances in reinforcement learning, computer vision, and multi-agent systems.
           </p>
           <p>
-            In my free time, I contribute to open-source projects, write technical blogs, and mentor junior developers. I'm always looking for opportunities to collaborate and share knowledge with the community.
+            In my free time, I work on personal robotics projects, experiment with AI frameworks, and explore new approaches to SLAM and sensor fusion. I'm particularly interested in how modern AI techniques can enhance traditional control systems for more robust autonomous behavior.
+          </p>
+        </div>
+      </section>
+
+      {/* Education */}
+      <section className="max-w-3xl space-y-lg">
+        <h2 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
+          Education
+        </h2>
+        <div className="card space-y-md">
+          <div className="flex flex-col gap-sm">
+            <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>
+              M.Sc. Applied Physics & Electrical Engineering
+            </h3>
+            <div className="flex items-center justify-between">
+              <p className="font-medium" style={{ color: 'var(--text-secondary)' }}>
+                Linköping University
+              </p>
+              <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
+                2019 - 2024
+              </p>
+            </div>
+          </div>
+          <p style={{ color: 'var(--text-secondary)' }}>
+            Specialization in Mechatronics and Control Systems. Master thesis: "Evaluation of SLAM Algorithms for Quadcopters" - combining sensor fusion with image processing for autonomous navigation.
           </p>
         </div>
       </section>
@@ -144,10 +169,10 @@ export default function About() {
         }}
       >
         <h2 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
-          Let's Work Together
+          Let's Connect
         </h2>
         <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
-          Interested in collaborating or want to discuss web development? I'd love to hear from you!
+          Interested in discussing robotics, autonomous systems, or AI? I'd love to hear from you!
         </p>
         <div className="flex flex-wrap gap-md">
           <a
