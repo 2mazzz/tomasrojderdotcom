@@ -43,7 +43,7 @@ export default function Header() {
               backgroundClip: 'text',
             }}
           >
-            TR
+            Tomas Röjder
           </Link>
         </div>
 
