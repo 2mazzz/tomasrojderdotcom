@@ -9,13 +9,11 @@ I work on control algorithms for agricultural machines and have experience in fl
 
 Type a command to get started, or try 'help' to see what you can do.`;
 
-const tractorArt = `       _____________
-      /            /|
-     /____________/ |
-    | ___    ___ |  |
-    ||   |  |   || /
-    ||___|  |___||/
-     (==)    (==)`;
+const tractorArt = `    _____        .--.
+   |     |      |o  |   !
+    \\   /       |:\`_|---'-.
+   __|_|______.'_'.------.|
+ (o)(o)------''._.'     (O)`;
 
 const commands: Record<string, string | null> = {
   blog: '/blog',
